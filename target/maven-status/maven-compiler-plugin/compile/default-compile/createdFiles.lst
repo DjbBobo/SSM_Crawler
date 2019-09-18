@@ -1,0 +1,11 @@
+cn\edu\web\ParseUrlController.class
+cn\edu\domain\ParseUrl.class
+cn\edu\service\MovieService.class
+utils\CrawlerMovie.class
+cn\edu\dao\ParseUrlDao.class
+cn\edu\web\MovieController.class
+cn\edu\service\ParseUrlService.class
+cn\edu\dao\MovieDao.class
+cn\edu\domain\Movie.class
+cn\edu\service\impl\MovieServiceImpl.class
+cn\edu\service\impl\ParseUrlServiceImpl.class
