@@ -51,7 +51,7 @@ public class CrawlerMovie {
             Element eScore = e.select("div").select("p.result-info-score").first();
             //因为搜索的结果不一定是电影，所有我是判断当前列表有无 评分 这一标签，若有，则为电影，反之则不是
             if (eScore != null){
-                movie.setScore(Double.valueOf(eScore.text().replace(" ","")));
+                movie.setScore(eScore.text().replace(" ",""));
                 movies.add(movie);
             }else {
                 break;
@@ -66,7 +66,7 @@ public class CrawlerMovie {
         //创建浏览器
         CloseableHttpClient httpClient = HttpClients.createDefault();
         //爬取次数
-        for (int i = 31; i < 50; i++) {
+        for (int i = 1; i < 31; i++) {
             //设置url请求
             HttpGet httpGet = new HttpGet(String.format(url, i));
             httpGet.addHeader("user-agent", "Mozilla/5.0");
@@ -87,7 +87,8 @@ public class CrawlerMovie {
                     String name = (String) jsonArray.getJSONObject(j).get("name");
                     String playUrl = (String) jsonArray.getJSONObject(j).get("playUrl");
                     String imageUrl = (String) jsonArray.getJSONObject(j).get("imageUrl");
-                    Double score = Double.valueOf(jsonArray.getJSONObject(j).get("score").toString());
+                    String score = String.valueOf(jsonArray.getJSONObject(j).get("score"));
+                    String mainActor = ((String) jsonArray.getJSONObject(j).get("secondInfo")).substring(3);
 
                     System.out.println("=================================================");
                     //请求Controller 将数据存储到数据库
@@ -98,6 +99,7 @@ public class CrawlerMovie {
                     movie.setPlayUrl(playUrl);
                     movie.setImageUrl(imageUrl);
                     movie.setScore(score);
+                    movie.setMainActor(mainActor);
                     System.out.println(movie);
                     //转化为JSON
                     JSONObject jsonObject = new JSONObject();
@@ -117,7 +119,7 @@ public class CrawlerMovie {
     }
 
     public static void main(String[] args) {
-//        CrawlerMovie.Crawler();
-        Crawler("复仇者联盟3");
+       Crawler();
+//        Crawler("复仇者联盟3");
     }
 }

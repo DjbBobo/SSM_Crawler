@@ -14,11 +14,14 @@ public class ParseUrlController {
     @Autowired
     ParseUrlService parseUrlService;
     @RequestMapping("/findById.do")
-    public ModelAndView findById(@RequestParam(name = "id",required = true)Integer id) throws Exception {
+    public ModelAndView findById(@RequestParam(name = "id",required = true)Integer id,@RequestParam(name = "sort",required = true)String sort) throws Exception {
         ModelAndView mv = new ModelAndView();
         ParseUrl parseUrl = parseUrlService.findById(id);
         mv.addObject("parseUrl",parseUrl);
-        mv.setViewName("play");
+        if (sort.equals("tv"))
+            mv.setViewName("tvPlay");
+        else if(sort.equals("movie"))
+            mv.setViewName("moviePlay");
         return mv;
     }
 }

@@ -52,6 +52,7 @@
     </div>
 </form>
 <hr/>
+
 <div id="content" class="container">
     <c:forEach items="${pageInfo.list}" var="movie">
     <div class="movie-content">

@@ -5,7 +5,6 @@
     <title>仅供学习测试,暂不支持手机播放</title>
     <link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css">
     <script src="../js/jquery.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
     <script>
         var _hmt = _hmt || [];
         (function() {

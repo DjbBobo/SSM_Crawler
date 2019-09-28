@@ -5,7 +5,8 @@ public class Movie {
     private String name;
     private String playUrl;
     private String imageUrl;
-    private Double score;
+    private String score;
+    private String mainActor;
 
     public Integer getId() {
         return id;
@@ -39,22 +40,21 @@ public class Movie {
         this.imageUrl = imageUrl;
     }
 
-    public Double getScore() {
+    public String getScore() {
         return score;
     }
 
-    public void setScore(Double score) {
+    public void setScore(String score) {
         this.score = score;
     }
 
-    @Override
-    public String toString() {
-        return "Movie{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", playUrl='" + playUrl + '\'' +
-                ", imageUrl='" + imageUrl + '\'' +
-                ", score=" + score +
-                '}';
+    public String getMainActor() {
+        return mainActor;
     }
+
+    public void setMainActor(String mainActor) {
+        this.mainActor = mainActor;
+    }
+
+
 }

@@ -13,7 +13,7 @@ public interface MovieDao {
      * @param movie
      * @throws Exception
      */
-    @Insert("insert into movie(name,playUrl,imageUrl,score) values(#{name},#{playUrl},#{imageUrl},#{score})")
+    @Insert("insert into movie(name,playUrl,imageUrl,score,mainActor) values(#{name},#{playUrl},#{imageUrl},#{score},#{mainActor})")
     public void addMovie(Movie movie)throws Exception;
 
     /**

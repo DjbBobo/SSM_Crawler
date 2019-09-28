@@ -3,6 +3,7 @@ package cn.edu.web;
 import cn.edu.domain.Movie;
 import cn.edu.service.MovieService;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import cn.edu.service.impl.MovieServiceImpl;
+import utils.CrawlerMovie;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -43,24 +45,35 @@ public class MovieController {
 //    }
     @RequestMapping("/findAll.do")
     public ModelAndView findAll(@RequestParam(name = "page",required = true,defaultValue = "1")Integer page
-                                ,@RequestParam(name = "size",required = true,defaultValue = "16")Integer size) throws Exception {
+                                ,@RequestParam(name = "size",required = true,defaultValue = "36")Integer size,HttpServletRequest request) throws Exception {
         ModelAndView mv = new ModelAndView();
+        request.getSession().setAttribute("sort","movie");
         List<Movie> movies = movieService.findAll(page,size);
         PageInfo pageInfo = new PageInfo(movies);
         mv.addObject("pageInfo", pageInfo);
-        mv.setViewName("first");
+        mv.setViewName("main");
         return mv;
     }
 
     @RequestMapping("/search.do")
-    public ModelAndView search(String movieName
+    public ModelAndView search(String name
                               ,@RequestParam(name = "page",required = true,defaultValue = "1")Integer page
                               ,@RequestParam(name = "size",required = true,defaultValue = "16")Integer size) throws Exception {
         ModelAndView mv = new ModelAndView();
-        List<Movie> movies = movieService.search(movieName,page,size);
-        PageInfo pageInfo = new PageInfo(movies);
+        List<Movie> movies = movieService.search(name,page,size);
+        PageInfo pageInfo = null;
+        //判断数据库是否找到
+        long total = ((Page)movies).getTotal();
+        //若找到
+        if (total != 0){
+            pageInfo = new PageInfo(movies);
+        }else{
+            //若没找到，则到爱奇艺抓取
+            movies = movieService.searchCrawler(name);
+            pageInfo = new PageInfo(movies);
+        }
         mv.addObject("pageInfo", pageInfo);
-        mv.setViewName("search");
+        mv.setViewName("main");
         return mv;
     }
     @RequestMapping("/searchCrawler.do")
@@ -78,7 +91,7 @@ public class MovieController {
         Movie movie = movieService.findById(id);
         request.getSession().setAttribute("playUrl",movie.getPlayUrl());
         mv.addObject("movie",movie);
-        mv.setViewName("play");
+        mv.setViewName("moviePlay");
         return mv;
     }
 
@@ -91,5 +104,13 @@ public class MovieController {
         return mv;
     }
 
+    @RequestMapping("/addNewMovie.do")
+    public ModelAndView addNewTv(){
+        ModelAndView mv = new ModelAndView();
+        CrawlerMovie.Crawler();
+        mv.addObject("success","更新成功");
+        mv.setViewName("Online");
+        return mv;
+    }
 
 }
