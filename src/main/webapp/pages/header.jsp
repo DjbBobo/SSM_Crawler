@@ -33,23 +33,6 @@
                 </div>
             </form>
         </li>
-        <li role="presentation" class="search-input search2">
-            <form action="${pageContext.request.contextPath}/movie/searchCrawler.do" method="post">
-                <div class="row">
-                    <div class="col-lg-8"></div>
-                    <div class="col-lg-3">
-                        <div style="height: 3px;"></div>
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="抓取全网，搜索内容需绝对匹配" name="movieName">
-                            <span class="input-group-btn">
-                            <button class="btn btn-warning" type="submit">Go!</button>
-                        </span>
-                        </div>
-                        <!-- /input-group -->
-                    </div>
-                </div>
-            </form>
-        </li>
     </ul>
 </div>
 <!--导航栏-->
