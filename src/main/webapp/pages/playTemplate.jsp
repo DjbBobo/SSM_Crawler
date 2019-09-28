@@ -4,7 +4,7 @@
 <!--播放器-->
 <div class="container" style="height: 700px;">
     <c:if test="${parseUrl eq null}">
-        <iframe src="${pageContext.request.contextPath}/pages/warm.html" frameborder="0" allowfullscreen="true" width="100%" height="100%"></iframe>
+        <iframe src="${pageContext.request.contextPath}/pages/warm.jsp" frameborder="0" allowfullscreen="true" width="100%" height="100%"></iframe>
     </c:if>
     <c:if test="${not empty parseUrl}">
         <iframe src="${parseUrl.url}${playUrl}" frameborder="0" allowfullscreen="true" width="100%"

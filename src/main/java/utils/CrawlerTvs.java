@@ -1,10 +1,8 @@
 package utils;
 
-import cn.edu.domain.Tv;
 import cn.edu.domain.Tvs;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
@@ -14,9 +12,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class CrawlerTvs {
     public static void main(String[] args) {
