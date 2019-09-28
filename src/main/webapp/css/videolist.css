@@ -1,0 +1,55 @@
+ul {
+	list-style: none;
+}
+
+ul li {
+	float: left;
+}
+
+.content {
+	width: 170px;
+	height: 230px;
+	margin-right: 10px;
+	margin-bottom: 20px;
+}
+
+.content-img a img {
+	width: 170px;
+	height: 190px;
+}
+
+.content-img a span {}
+
+.title {
+	background: #F8F8F8;
+}
+
+.title p {
+	margin: 0;
+}
+
+.title p {
+	padding-left: 5px;
+	padding-top: 3px;
+	font-size: 11px;
+}
+
+.title p a {
+	text-decoration: none;
+	color: black;
+}
+
+.title p a:hover {
+	color: green;
+}
+.main a .score{
+	float: right;
+	color: #ff6200;
+	font-size: 14px;
+	padding-right: 4px;
+}
+.sub{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}

@@ -1,0 +1,22 @@
+.content-header {
+    background: #E6E6E6;
+    height: 40px;
+    line-height: 40px;
+    font-family: "楷体";
+    font-size: 20px;
+}
+
+.content {
+    border: 1px solid #E7E7E7;
+}
+
+.content nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+    text-align: center;
+}
+.content nav ul li a{
+    width: 37px;
+    font-size: 12px;
+    margin-left: 0px;
+}
