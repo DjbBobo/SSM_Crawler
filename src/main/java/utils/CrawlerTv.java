@@ -21,7 +21,7 @@ public class CrawlerTv {
     }
     public static void Crawler(){
         //请求url
-        String url = "https://pcw-api.iqiyi.com/search/video/videolists?access_play_control_platform=14&channel_id=2&data_type=1&from=pcw_list&is_album_finished=&is_purchase=&key=&market_release_date_level=&mode=24&pageNum=%s&pageSize=48&site=iqiyi&source_type=&three_category_id=&without_qipu=1";
+        String url = "https://xxxx";
         //创建浏览器
         CloseableHttpClient httpClient = HttpClients.createDefault();
         //遍历页数
