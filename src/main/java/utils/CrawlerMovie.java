@@ -26,7 +26,7 @@ public class CrawlerMovie {
     //爬取不入库
     public static List<Movie> Crawler(String name){
         //根据name值(即电影名)拼接电影网址
-        String url = String.format("https://so.iqiyi.com/so/q_%s", name);
+        String url = String.format("https://xxxxx %s", name);
         Document doc = null;
         try {
             doc = Jsoup.connect(url).get();
@@ -62,7 +62,7 @@ public class CrawlerMovie {
 
     //爬取入库
     public static void Crawler() {
-        String url = "https://pcw-api.iqiyi.com/search/video/videolists?access_play_control_platform=14&channel_id=1&data_type=1&from=pcw_list&is_album_finished=&is_purchase=&key=&market_release_date_level=&mode=11&pageNum=%s&pageSize=48&site=iqiyi&source_type=&three_category_id=&without_qipu=1";
+        String url = "xxxxxx";
         //创建浏览器
         CloseableHttpClient httpClient = HttpClients.createDefault();
         //爬取次数
