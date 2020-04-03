@@ -1,5 +1,5 @@
 # SSM_Crawler
-SSM框架练习。功能：爬取爱奇艺电影/电视剧入库以及实时爬取爱奇艺电影并展示到页面。<br/>
+SSM框架练习。功能：爬取电影/电视剧入库以及实时爬取爱奇艺电影并展示到页面。<br/>
 页面使用的是Bootstrap框架。
 ### 效果图
 ![image](https://github.com/DjbBobo/SSM_Crawler/blob/master/movie.jpg)
