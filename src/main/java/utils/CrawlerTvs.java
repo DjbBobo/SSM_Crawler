@@ -15,7 +15,7 @@ import java.io.IOException;
 
 public class CrawlerTvs {
     public static void main(String[] args) {
-        Crawler("https://www.iqiyi.com/a_19rrhzyl2l.html");
+        Crawler("https://www.xxx.com/a_19rrhzyl2l.html");
     }
 
 
