@@ -10,5 +10,5 @@ SSM框架练习。功能：爬取电影/电视剧入库以及实时爬取爱奇�
           
 ### MySql表创建说明
 	使用的数据库名为movie<br/>
-	有四个表：movie、parseurl,tv,tvs，分别存储电影信息、解析接口url、电视剧URL以及电视剧对应的剧URL
+	有四个表：movie、parseurl,tv,tvs，分别存储电影信息、电视剧URL以及电视剧对应的URL
 # 本项目仅用于学习
